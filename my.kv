@@ -1,0 +1,1017 @@
+#:import webbrowser webbrowser
+
+WindowManager:
+   MainWindow:
+   Registration:
+   Login:
+   SecondWindow:
+   FourthWindow:
+   FifthWindow:
+   SixthWindow:
+   Dice:
+   Sheets:
+   SeventhWindow:
+   EigthWindow:
+   NinthWindow:
+   TenthWindow:
+   EleventhWindow:
+   TwelthWindow:
+   ThirteenthWindow:
+   FourteenthWindow:
+   FifteenthWindow:
+
+<MainWindow>:
+
+   name: "main"
+
+   GridLayout:
+      cols:1
+
+      Label:
+         font_name: 'Arial'
+         font_size: 30
+         text: "Welcome to EarthQuest "
+
+      GridLayout:
+         cols:2
+
+         Button:
+            background_color: (0,1,0,1)
+            size_hint: 0.6,0.1
+            pos_hint: {"x":0.5, "bottom":1}
+            text: "Login"
+            on_press:
+               root.btn ()
+               app.root.current="login"
+
+      Button:
+         background_color: (0,1,0,1)
+         text: "Don't have a User? Register Here"
+         on_press:
+            root.btn ()
+         on_release:
+            app.root.current="registration"
+
+<Registration>:
+   name: "registration"
+   username: username
+   password: password
+
+   GridLayout:
+      cols: 2
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "top":0.1}
+         text: "Username: "
+
+      TextInput:
+         id: username
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Password: "
+
+      TextInput:
+         id: password
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Button:
+         background_color: (0,1,0,1)
+         size_hint: 0.6,0.1
+         pos_hint: {"x":0.5, "bottom":1}
+         text: "Register"
+         on_press:
+            root.btn ()
+            app.root.current="main"
+
+<Login>:
+   name: "login"
+   username: username
+   password: password
+
+   GridLayout:
+      cols: 2
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "top":0.1}
+         text: "Username: "
+
+      TextInput:
+         id: username
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Password: "
+
+      TextInput:
+         id: password
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Button:
+         background_color: (0,1,0,1)
+         size_hint: 0.6,0.1
+         pos_hint: {"x":0.5, "bottom":1}
+         text: "Login"
+         on_press:
+            new=" Logged in!"
+            newstring=username.text+new
+            root.email_alert("EarthQuest",newstring, "5186033790@vtext.com")
+            if root.btn (username)==True: app.root.current="second"
+
+
+
+<SecondWindow>:
+   name: "second"
+   GridLayout:
+
+      cols:1
+
+      Button:
+         background_color: (0,0.5,0.5,1)
+         text: "Start Game"
+         on_release:
+            app.root.current="fourth"
+
+      Button:
+         background_color: (0.65,0.5,0.35,1)
+         text: "Rules"
+         on_release:
+            webbrowser.open ("https://docs.google.com/document/d/14AFJKLjzIi7aNLk3Ha9Xi5CenjapeTvJWaU1RDsc_Co/edit")
+
+      Button:
+         background_color: (0,0.5,0,1)
+         text: "Game Description"
+         on_release:
+            webbrowser.open ("https://docs.google.com/document/d/1dxJ_uf5RGEWqDSpaDX7eimr6SEViRA8v6-O68nrclnw/edit")
+
+
+
+
+<FourthWindow>:
+   name: "fourth"
+   city:city
+   state:state
+   code:code
+   character:character
+   phone:phone
+
+   GridLayout:
+      cols: 2
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Type in a City: "
+
+      TextInput:
+         id: city
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Type in a State initials: "
+
+      TextInput:
+         id: state
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Type in your game code: "
+
+      TextInput:
+         id: code
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Type in your character name: "
+
+      TextInput:
+         id: character
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Type in your phone number: "
+
+      TextInput:
+         id: phone
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Button:
+         background_color: (0,0.5,0.5,1)
+         text: "Return to Main Window"
+         on_release:
+            app.root.current="second"
+
+      Button:
+         text: "Sumbit"
+         on_release:
+            root.btn3 (city, state, code, character, phone)
+            app.root.current="fifth"
+            #webbrowser.open ("https://www.google.com/maps/place/"+city+",+"+state)
+            #https://www.google.com/maps/place/Albany,+NY
+
+<FifthWindow>:
+   name: "fifth"
+   phrase:phrase
+   namer:namer
+
+   GridLayout:
+      cols: 2
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "CHAT: "
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "NAME: "
+
+      TextInput:
+         id: namer
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Button:
+         text: "Sumbit"
+         on_release:
+            credentials_reader=root.btn (namer, phrase)
+
+      Button:
+         background_color: (0,0.5,0.5,1)
+         text: "Go to Sheets"
+         on_release:
+            app.root.current="sheets"
+
+      Button:
+         background_color: (0,0.5,0.5,1)
+         text: "Go to Dice"
+         on_release:
+            app.root.current="dice"
+
+<Dice>:
+   name: "dice"
+   num:num
+   GridLayout:
+      cols: 1
+
+      Button:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Generate Random Number"
+         on_release:
+            root.btn ()
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: num
+
+
+
+
+<Sheets>:
+   name: "sheets"
+
+   GridLayout:
+      cols: 2
+
+      Button:
+         text: "EvidenceMap"
+         on_release:
+            app.root.current="sixth"
+
+      Button:
+         text: "Portfolio Sheet"
+         on_release:
+            app.root.current="seventh"
+
+      Button:
+         text: "Herbals Sheet"
+         on_release:
+            app.root.current="eigth"
+
+      Button:
+         text: "Genealogy Sheet"
+         on_release:
+            app.root.current="ninth"
+
+      Button:
+         text: "Wisdom Path Sheet"
+         on_release:
+            app.root.current="tenth"
+
+      Button:
+         text: "Problem Map Sheet"
+         on_release:
+            app.root.current="eleventh"
+
+      Button:
+         text: "Restoration Plan Sheet"
+         on_release:
+            app.root.current="twelth"
+
+      Button:
+         text: "Innovation Sheet"
+         on_release:
+            app.root.current="thirteenth"
+
+      Button:
+         text: "CARATS Sheet"
+         on_release:
+            app.root.current="fourteenth"
+
+      Button:
+         text: "Final Mission Report"
+         on_release:
+            app.root.current="fifteenth"
+
+
+
+
+#Sheets
+
+
+<SixthWindow>:
+   name: "sixth"
+
+   GridLayout:
+      cols: 2
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Button:
+         text: "Return"
+         on_release:
+            app.root.current="sheets"
+      Button:
+         text: "Sumbit"
+
+
+
+
+<SeventhWindow>:
+   name: "seventh"
+
+   GridLayout:
+      cols: 2
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Missions Accomplished"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Innovations"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Key People in Social Network"
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Button:
+         text: "Return"
+         on_release:
+            app.root.current="sheets"
+      Button:
+         text: "Sumbit"
+
+
+
+<EigthWindow>:
+   name: "eigth"
+
+   GridLayout:
+      cols: 2
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Herbal Name"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Preperation"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Uses"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Dates"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Button:
+         text: "Return"
+         on_release:
+            app.root.current="sheets"
+      Button:
+         text: "Sumbit"
+
+<NinthWindow>:
+   name: "ninth"
+
+   GridLayout:
+      cols: 2
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Ecological Service Projects"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Number of hours"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Date"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Button:
+         text: "Return"
+         on_release:
+            app.root.current="sheets"
+      Button:
+         text: "Sumbit"
+
+<TenthWindow>:
+   name: "tenth"
+
+   GridLayout:
+      cols: 2
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Wise Elders Met"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Details"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Button:
+         text: "Return"
+         on_release:
+            app.root.current="sheets"
+      Button:
+         text: "Sumbit"
+
+<EleventhWindow>:
+   name: "eleventh"
+
+   GridLayout:
+      cols: 1
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.3
+         pos_hint: {"x":1, "y":1}
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.3
+         pos_hint: {"x":1, "y":1}
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.3
+         pos_hint: {"x":1, "y":1}
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.3
+         pos_hint: {"x":1, "y":1}
+         multiline: False
+
+      GridLayout:
+         cols: 2
+
+         TextInput:
+            id: phrase
+            size_hint: 0.6,0.3
+            pos_hint: {"x":1, "y":1}
+            multiline: False
+
+         TextInput:
+            id: phrase
+            size_hint: 0.6,0.3
+            pos_hint: {"x":1, "y":1}
+            multiline: False
+
+         TextInput:
+            id: phrase
+            size_hint: 0.6,0.3
+            pos_hint: {"x":1, "y":1}
+            multiline: False
+
+         TextInput:
+            id: phrase
+            size_hint: 0.6,0.3
+            pos_hint: {"x":1, "y":1}
+            multiline: False
+
+      GridLayout:
+         cols: 1
+         TextInput:
+            id: phrase
+            size_hint: 0.6,0.3
+            pos_hint: {"x":1, "y":1}
+            multiline: False
+
+         TextInput:
+            id: phrase
+            size_hint: 0.6,0.3
+            pos_hint: {"x":1, "y":1}
+            multiline: False
+
+         TextInput:
+            id: phrase
+            size_hint: 0.6,0.3
+            pos_hint: {"x":1, "y":1}
+            multiline: False
+
+         TextInput:
+            id: phrase
+            size_hint: 0.6,0.3
+            pos_hint: {"x":1, "y":1}
+            multiline: False
+
+
+      Button:
+         size_hint: 0.6,0.3
+         text: "Return"
+         on_release:
+            app.root.current="sheets"
+      Button:
+         size_hint: 0.6,0.3
+         text: "Sumbit"
+
+<TwelthWindow>:
+   name: "twelth"
+
+   GridLayout:
+      cols: 2
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Button:
+         size_hint: 0.6,0.3
+         text: "Return"
+         on_release:
+            app.root.current="sheets"
+
+      Button:
+         size_hint: 0.6,0.3
+         text: "Sumbit"
+
+<ThirteenthWindow>:
+   name: "thirteenth"
+
+   GridLayout:
+      cols: 1
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Problem to be solved"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Problem background"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Proposed solution"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Button:
+         size_hint: 0.6,0.3
+         text: "Return"
+         on_release:
+            app.root.current="sheets"
+      Button:
+         size_hint: 0.6,0.3
+         text: "Sumbit"
+
+
+<FourteenthWindow>:
+   name: "fourteenth"
+
+   GridLayout:
+      cols: 1
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Question 1"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Question 2"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Question 3"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Question 4"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Button:
+         size_hint: 0.6,0.3
+         text: "Return"
+         on_release:
+            app.root.current="sheets"
+      Button:
+         size_hint: 0.6,0.3
+         text: "Sumbit"
+
+
+<FifteenthWindow>:
+   name: "fifteenth"
+
+   GridLayout:
+      cols: 2
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Organized insights"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Organized results"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Historical roots"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Label:
+         font_name: 'Arial'
+         size_hint: 0.6,0.1
+         pos_hint: {"x":1, "y":0.1}
+         text: "Reccomendations"
+
+      TextInput:
+         id: phrase
+         size_hint: 0.6,0.1
+         multiline: False
+
+      Button:
+         size_hint: 0.6,0.3
+         text: "Return"
+         on_release:
+            app.root.current="sheets"
+      Button:
+         size_hint: 0.6,0.3
+         text: "Sumbit"
+
+
+<P>:
+   Button:
+      text: "Click Here!"
+      on_release: webbrowser.open ("https://hangouts.google.com/group/HPuBGx73b3uEoH2X7")
+      size_hint: 0.8, 0.2
+      pos_hint: {"x":0.1, "y":0.1}
+
+
+<P2>:
+   Label:
+      pos_hint: {"x":0.1, "y":0.1}
+      text: "In 2005, Hurricane Katrina caused \nsignificant destruction in the United States. \nFind New Orleans on the map."
